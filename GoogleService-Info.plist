@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>48205136182-rke053apuv92ptu99dl9l1uc1drne16u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.48205136182-rke053apuv92ptu99dl9l1uc1drne16u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDWkjwt288onGzqMvPovw3dQqGwFhWjoCo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>48205136182</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>il.co.kosherdate</string>
+	<key>PROJECT_ID</key>
+	<string>interdate-ltd.co.il:api-project-48205136182</string>
+	<key>STORAGE_BUCKET</key>
+	<string>interdate-ltd.co.il:api-project-48205136182.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:48205136182:ios:f8330740443989e7</string>
+	<key>DATABASE_URL</key>
+	<string>https://interdate-ltd-co-il-api-project-48205136182.firebaseio.com</string>
+</dict>
+</plist>

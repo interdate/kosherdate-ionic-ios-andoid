@@ -1,0 +1,13 @@
+{
+  "name": "kosherdate",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "http://m.kosherdate.co.il/api/v5/index.php"
+    }
+  ]
+}
