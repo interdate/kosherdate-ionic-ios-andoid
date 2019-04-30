@@ -62,8 +62,6 @@ export class SubscriptionPage {
     }
 
     getPage() {
-
-
         this.http.get(this.api.url + '/user/subscriptions', this.api.setHeaders(true)).subscribe(data => {
 
             this.products = data.json().subscription.payments;
