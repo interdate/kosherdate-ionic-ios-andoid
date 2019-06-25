@@ -206,20 +206,20 @@ export class HomePage {
         if (user.isFav == false) {
             user.isFav = true;
 
-            let params = JSON.stringify({
+            var params = JSON.stringify({
                 list: 'Favorite'
             });
 
-            let url = this.api.url + '/user/managelists/favi/1/' + user.id;
+            var url = this.api.url + '/user/managelists/favi/1/' + user.id;
 
         } else {
             user.isFav = false;
 
-            let params = JSON.stringify({
+            var params = JSON.stringify({
                 list: 'Unfavorite'
             });
 
-            let url = this.api.url + '/user/managelists/favi/0/' + user.id;
+            var url = this.api.url + '/user/managelists/favi/0/' + user.id;
         }
 
         this.http.post(url, params, this.api.setHeaders(true, this.username, this.password)).subscribe(data => {

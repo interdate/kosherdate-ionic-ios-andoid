@@ -81,10 +81,10 @@ export class SubscriptionPage {
             this.platform = 'ios';
 
 
-            this.products = ['kosherdate.oneWeek','kosherdate.oneMonth', 'kosherdate.threeMonths','kosherdate.sixMonths', 'kosherdate.oneYear'];
+            this.products = ['kosherdate.oneWeek','kosherdate.oneMonth', 'kosherdate.threeMonths'/*,'kosherdate.sixMonths', 'kosherdate.oneYear'*/];
 
             this.iap
-                .getProducts(['kosherdate.oneWeek','kosherdate.oneMonth', 'kosherdate.threeMonths','kosherdate.sixMonths', 'kosherdate.oneYear'])
+                .getProducts(['kosherdate.oneWeek','kosherdate.oneMonth', 'kosherdate.threeMonths'/*,'kosherdate.sixMonths', 'kosherdate.oneYear'*/])
                 .then((products) => {
                     products.forEach(product => {
 
@@ -104,7 +104,7 @@ export class SubscriptionPage {
                             product.title = 'מנוי תלת חודשי מתחדש קשרדייט';
                             product.description = 'מנוי מתחדש כל 3 חודשים המאפשר לך לקרוא הודעות ללא הגבלה';
                         }
-                        if(product.productId == 'kosherdate.sixMonths'){
+                        /*if(product.productId == 'kosherdate.sixMonths'){
                             product.id = 3;
                             product.title = 'מנוי חצי שנתי מתחדש קשרדייט';
                             product.description = 'מנוי מתחדש כל 6 חודשים המאפשר לך לקרוא הודעות ללא הגבלה';
@@ -113,7 +113,7 @@ export class SubscriptionPage {
                             product.id = 4;
                             product.title = 'מנוי שנתי מתחדש קשרדייט';
                             product.description = 'מנוי מתחדש כל שנה המאפשר לך לקרוא הודעות ללא הגבלה';
-                        }
+                        }*/
 
                         this.products[product.id] = product;
                     });
@@ -186,13 +186,13 @@ export class SubscriptionPage {
                  monthsNumber = 3;
                 break;
 
-            case 'kosherdate.sixMonths':
+            /*case 'kosherdate.sixMonths':
                  monthsNumber = 6;
                 break;
 
             case 'kosherdate.oneYear':
                  monthsNumber = 12;
-                break;
+                break;*/
         }
         this.iap
             .subscribe(product.productId)

@@ -58,20 +58,20 @@ export class FullScreenProfilePage {
         if (user.isAddFavorite == false) {
             user.isAddFavorite = true;
 
-            let params = JSON.stringify({
+            var params = JSON.stringify({
                 list: 'Favorite'
             });
 
-            let url = this.api.url + '/user/managelists/favi/1/' + this.user.userId;
+            var url = this.api.url + '/user/managelists/favi/1/' + this.user.userId;
 
         } else {
             user.isAddFavorite = false;
 
-            let params = JSON.stringify({
+            var params = JSON.stringify({
                 list: 'Unfavorite'
             });
 
-            let url = this.api.url + '/user/managelists/favi/0/' + this.user.userId;
+            var url = this.api.url + '/user/managelists/favi/0/' + this.user.userId;
         }
 
         this.http.post(url, params, this.api.setHeaders(true)).subscribe(data => {
