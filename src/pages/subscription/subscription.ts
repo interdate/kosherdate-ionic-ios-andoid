@@ -62,70 +62,73 @@ export class SubscriptionPage {
     }
 
     getPage() {
+        this.api.showLoad();
         this.http.get(this.api.url + '/user/subscriptions', this.api.setHeaders(true)).subscribe(data => {
-
-            this.products = data.json().subscription.payments;
             this.dataPage = data.json().subscription;
-            console.log(this.products);
-            this.api.hideLoad();
+            //console.log(this.products);
+            if (this.plt.is('android')) {
+                this.platform = 'android';
+                this.products = data.json().subscription.payments;
+                this.api.hideLoad();
+
+            } else {
+                this.products = [];
+                this.platform = 'ios';
+
+                let productsList = ['kosherdate.oneWeek','kosherdat.oneMonth', 'kosherdate.threeMonths'/*,'kosherdate.sixMonths', 'kosherdate.oneYear'*/];
+
+                this.iap
+                    .getProducts(productsList)
+                    .then((products) => {
+                        this.api.hideLoad();
+                        products.forEach(product => {
+
+                            if(product.productId == 'kosherdate.oneWeek'){
+                                product.id = 0;
+                                product.title = 'מנוי שבועי מתחדש';
+                                product.description = 'מנוי מתחדש כל שבוע המאפשר לך לקרוא הודעות ללא הגבלה';
+                            }
+                            if(product.productId == 'kosherdat.oneMonth'){
+                                product.id = 1;
+                                //product.title = 'חודשי מתחדש';
+                                product.title = 'מנוי חודשי מתחדש';
+                                product.description = 'מנוי מתחדש כל חודש המאפשר לך לקרוא הודעות ללא הגבלה';
+                            }
+                            if(product.productId == 'kosherdate.threeMonths'){
+                                product.id = 2;
+                                product.title = 'מנוי תלת חודשי מתחדש';
+                                product.description = 'מנוי מתחדש כל 3 חודשים המאפשר לך לקרוא הודעות ללא הגבלה';
+                            }
+                            /*if(product.productId == 'kosherdate.sixMonths'){
+                                product.id = 3;
+                                product.title = 'מנוי חצי שנתי מתחדש';
+                                product.description = 'מנוי מתחדש כל 6 חודשים המאפשר לך לקרוא הודעות ללא הגבלה';
+                            }
+                            if(product.productId == 'kosherdate.oneYear'){
+                                product.id = 4;
+                                product.title = 'מנוי שנתי מתחדש';
+                                product.description = 'מנוי מתחדש כל שנה המאפשר לך לקרוא הודעות ללא הגבלה';
+                            }*/
+
+                            this.products[product.id] = product;
+                        }).catch((err) => {
+                            alert(JSON.stringify(err));
+                        });
+
+                        //alert(JSON.stringify(this.products));
+
+                        //this.products = products;
+                    })
+                    .catch((err) => {
+                        console.log('this.iap' + JSON.stringify(err));
+                    });
+            }
         });
         //this.goto('https://m.kosherdate.co.il/subscription/?&userId=' + val);
 
 
 
-        if (this.plt.is('android')) {
-            this.platform = 'android';
 
-        } else {
-
-            this.platform = 'ios';
-
-
-            this.products = ['kosherdate.oneWeek','kosherdate.oneMonth', 'kosherdate.threeMonths'/*,'kosherdate.sixMonths', 'kosherdate.oneYear'*/];
-
-            this.iap
-                .getProducts(['kosherdate.oneWeek','kosherdate.oneMonth', 'kosherdate.threeMonths'/*,'kosherdate.sixMonths', 'kosherdate.oneYear'*/])
-                .then((products) => {
-                    products.forEach(product => {
-
-                        if(product.productId == 'kosherdate.oneWeek'){
-                            product.id = 0;
-                            product.title = 'מנוי שבועי מתחדש קשרדייט';
-                            product.description = 'מנוי מתחדש כל שבוע המאפשר לך לקרוא הודעות ללא הגבלה';
-                        }
-                        if(product.productId == 'kosherdate.oneMonth'){
-                            product.id = 1;
-                            //product.title = 'חודשי מתחדש';
-                            product.title = 'מנוי חודשי מתחדש קשרדייט';
-                            product.description = 'מנוי מתחדש כל חודש המאפשר לך לקרוא הודעות ללא הגבלה';
-                        }
-                        if(product.productId == 'kosherdate.threeMonths'){
-                            product.id = 2;
-                            product.title = 'מנוי תלת חודשי מתחדש קשרדייט';
-                            product.description = 'מנוי מתחדש כל 3 חודשים המאפשר לך לקרוא הודעות ללא הגבלה';
-                        }
-                        /*if(product.productId == 'kosherdate.sixMonths'){
-                            product.id = 3;
-                            product.title = 'מנוי חצי שנתי מתחדש קשרדייט';
-                            product.description = 'מנוי מתחדש כל 6 חודשים המאפשר לך לקרוא הודעות ללא הגבלה';
-                        }
-                        if(product.productId == 'kosherdate.oneYear'){
-                            product.id = 4;
-                            product.title = 'מנוי שנתי מתחדש קשרדייט';
-                            product.description = 'מנוי מתחדש כל שנה המאפשר לך לקרוא הודעות ללא הגבלה';
-                        }*/
-
-                        this.products[product.id] = product;
-                    });
-
-                    //alert(JSON.stringify(this.products));
-
-                    //this.products = products;
-                })
-                .catch((err) => {
-                    console.log('this.iap' + JSON.stringify(err));
-                });
-        }
 
     }
 
@@ -171,6 +174,8 @@ export class SubscriptionPage {
 
     subscribe(product) {
 
+        this.api.showLoad();
+
         let monthsNumber;
 
         switch(product.productId){
@@ -178,7 +183,7 @@ export class SubscriptionPage {
                  monthsNumber = 0.5;
                 break;
 
-            case 'kosherdate.oneMonth':
+            case 'kosherdat.oneMonth':
                  monthsNumber = 1;
                 break;
 

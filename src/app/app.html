@@ -5,7 +5,8 @@
                 <a target="_blank" href="https://t.me/kosherdate"><img src="https://m.zigzug.co.il/images/telegram.png"></a>
             </div>
             <div class="facebook">
-                <a target="_blank" href="https://www.facebook.com/kosherdate/"><img src="https://m.zigzug.co.il/images/facebook.png"></a>
+                <a target="_blank" href="https://www.facebook.com/kosherdate/"><img
+                        src="https://m.zigzug.co.il/images/facebook.png"></a>
             </div>
         </div>
         <button id="menuToggle" menuToggle="right">
@@ -22,7 +23,7 @@
 <ion-menu side="right" [content]="content" class="side-menu" id="menu1">
     <ion-content>
         <ion-list>
-            <div class="menu-top" *ngIf="is_login" >
+            <div class="menu-top" *ngIf="is_login">
                 <ion-icon class="settings" name="settings" tappable (click)="menu2Active()"></ion-icon>
                 <div (click)="openPage(menu_items_settings[1])" class="profile"
                      *ngIf="avatar == '/images/no_photo_2.jpg' || avatar == '/images/no_photo_1.jpg'"
@@ -35,7 +36,8 @@
                 <div (click)="openPage(menu_items_settings[2])" class="username">{{ username }}</div>
             </div>
             <div *ngFor="let menu_item of menu_items">
-                <button *ngIf="(menu_item._id == 'subscribe' && isPaying == 0) || menu_item._id != 'subscribe'" ion-item (click)="openPage(menu_item)">
+                <button *ngIf="(menu_item._id == 'subscribe' && isPaying == 0) || menu_item._id != 'subscribe'" ion-item
+                        (click)="openPage(menu_item)">
                     <ion-icon id="{{menu_item._id}}" name="{{menu_item.icon}}"></ion-icon>
                     <span>{{menu_item.title}}</span>
                     <ion-icon class="contact-arrow" *ngIf="menu_item._id == 'stats'" ios="ios-arrow-forward"
@@ -91,8 +93,8 @@
     </ion-content>
 </ion-menu>
 <!--<img style="display: none;" class="banner" src="/images/spedate1.gif">-->
-<a class="link-banner"  *ngIf="banner?.src != '.' && is_login" href="{{banner?.link}}" (click)="goTo();">
-        <img class="banner" src="{{'https://www.shedate.co.il/images/banners/' + banner?.src}}">"#"
+<a class="link-banner" *ngIf="banner?.src != '.' && is_login" href="{{banner?.link}}" (click)="goTo();">
+    <img class="banner" src="{{'https://www.shedate.co.il/images/banners/' + banner?.src}}">"#"
 </a>
 <ion-footer *ngIf="is_login" (swipe)="swipeFooterMenu()">
     <!--<div *ngIf="new_message && new_message.is_not_sent_today == true" class="messageNotify">
@@ -116,17 +118,21 @@
                 </li>
                 <li class="{{menu_item_footer1._id}}" *ngFor="let menu_item_footer1 of menu_items_footer1"
                     (click)="openPage(menu_item_footer1)"><span
-                        *ngIf="is_login && menu_item_footer1?.count && menu_item_footer1.count != 0 " class="inbox_count">{{ menu_item_footer1.count }}</span>
+                        *ngIf="is_login && menu_item_footer1?.count && menu_item_footer1.count != 0 "
+                        class="inbox_count">{{ menu_item_footer1.count }}</span>
                     <ion-icon name="{{menu_item_footer1.icon}}"></ion-icon>
-                    <img class="{{menu_item_footer1._id}}" src="{{menu_item_footer1.src_img}}">{{menu_item_footer1.title}}
+                    <img class="{{menu_item_footer1._id}}"
+                         src="{{menu_item_footer1.src_img}}">{{menu_item_footer1.title}}
                 </li>
             </ul>
             <ul class="menu-two">
                 <li *ngFor="let menu_item_footer2 of menu_items_footer2; let i = index"
                     (click)="openPage(menu_item_footer2)" [ngClass]="{'search-width': i == 3 }">
                     <ion-icon name="{{menu_item_footer2.icon}}"></ion-icon>
-                    <span *ngIf="is_login && menu_item_footer2?.count && menu_item_footer2.count != 0" class="inbox_count">{{ menu_item_footer2.count }}</span>
-                    <img class="{{menu_item_footer2._id}}" src="{{menu_item_footer2.src_img}}">{{menu_item_footer2.title}}
+                    <span *ngIf="is_login && menu_item_footer2?.count && menu_item_footer2.count != 0"
+                          class="inbox_count">{{ menu_item_footer2.count }}</span>
+                    <img class="{{menu_item_footer2._id}}"
+                         src="{{menu_item_footer2.src_img}}">{{menu_item_footer2.title}}
                 </li>
             </ul>
         </div>

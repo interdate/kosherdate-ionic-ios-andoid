@@ -91,6 +91,10 @@ ion-menu .item-md [item-right] {
   margin: 15px 5px 0px 0;
 }
 
+ion-menu ion-list.list {
+  padding-bottom: 48px;
+}
+
 .searchbar-md .searchbar-input {
   padding: 6px 10px;
 }

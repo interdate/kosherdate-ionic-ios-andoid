@@ -105,7 +105,7 @@ page-subscription {
   }
 
   .link {
-    color: #0c2b4c;
+    color: #fff;
     text-decoration: underline;
   }
 
@@ -181,7 +181,7 @@ page-subscription {
   }
 
   .subscr_center {
-    padding: 10px 100px 10px 20px;
+    padding: 10px 80px 10px 20px;
     line-height: 1.3em;
   }
 
@@ -229,11 +229,15 @@ page-subscription {
     }
   }
 
+  .description {
+    font-size: 12px;
+  }
+
   .subscr_right {
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 35px;
-    width: 100px;
+    width: 80px;
     text-align: right;
     font-weight: bold;
     color: #0c2b4c;

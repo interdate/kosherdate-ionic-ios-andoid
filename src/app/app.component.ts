@@ -45,14 +45,14 @@ export class MyApp {
     // make HelloIonicPage the root (or first) page
     rootPage: any;
     //rootPage = LoginPage;
-    banner: {src: string; link: string};
-    menu_items_logout: Array<{_id: string, icon: string, title: string, count: any, component: any}>;
-    menu_items_login: Array<{_id: string, icon: string, title: string, count: any, component: any}>;
-    menu_items: Array<{_id: string, icon: string, title: string, count: any, component: any}>;
-    menu_items_settings: Array<{_id: string, icon: string, title: string, count: any, component: any}>;
-    menu_items_contacts: Array<{_id: string, list: string, icon: string, title: string, count: any, component: any}>;
-    menu_items_footer1: Array<{_id: string, src_img: string, list: string, icon: string, count: any, title: string, component: any}>;
-    menu_items_footer2: Array<{_id: string, src_img: string, list: string, icon: string, title: string, count: any, component: any}>;
+    banner: { src: string; link: string };
+    menu_items_logout: Array<{ _id: string, icon: string, title: string, count: any, component: any }>;
+    menu_items_login: Array<{ _id: string, icon: string, title: string, count: any, component: any }>;
+    menu_items: Array<{ _id: string, icon: string, title: string, count: any, component: any }>;
+    menu_items_settings: Array<{ _id: string, icon: string, title: string, count: any, component: any }>;
+    menu_items_contacts: Array<{ _id: string, list: string, icon: string, title: string, count: any, component: any }>;
+    menu_items_footer1: Array<{ _id: string, src_img: string, list: string, icon: string, count: any, title: string, component: any }>;
+    menu_items_footer2: Array<{ _id: string, src_img: string, list: string, icon: string, title: string, count: any, component: any }>;
 
     activeMenu: string;
     username: any;
@@ -149,6 +149,27 @@ export class MyApp {
                                 text: data.json().update,
                                 handler: data => {
                                     window.open('market://details?id=com.interdate.kosherdate', '_system');
+                                }
+                            }
+                        ]
+                    });
+                    prompt.present();
+                } else if (data.json().android.version != s && this.platform.is('ios')) {
+                    let prompt = this.alertCtrl.create({
+                        title: data.json().title,
+                        message: data.json().message,
+                        cssClass: 'new-version',
+                        buttons: [
+                            {
+                                text: data.json().cancel,
+                                handler: data => {
+                                    console.log('Cancel clicked');
+                                }
+                            },
+                            {
+                                text: data.json().update,
+                                handler: data => {
+                                    window.open('market://details?id=il.co.kosherdate', '_system');
                                 }
                             }
                         ]
@@ -600,9 +621,7 @@ export class MyApp {
                     page: 1,
                     searchparams: {region: '', agefrom: 0, ageto: 0, sexpreef: '', meritalstat: '', userNick: ''}
                 });
-            }
-
-            else {
+            } else {
 
                 params = JSON.stringify({
                     action: '',

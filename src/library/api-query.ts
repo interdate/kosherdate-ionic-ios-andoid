@@ -40,8 +40,8 @@ export class ApiQuery {
                 public modalCtrl: ModalController,
                 public plt: Platform) {
        //this.url = 'http://10.0.0.12:8100';
-       //this.url = 'http://localhost:8101';
-        this.url = 'http://m.kosherdate.co.il/api/v5/index.php';
+       this.url = 'http://localhost:8101';
+        //this.url = 'http://m.kosherdate.co.il/api/v6/index.php';
         this.storage.get('user_id').then((val) => {
             this.storage.get('username').then((username) => {
                 this.username = username;

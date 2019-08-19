@@ -7,7 +7,7 @@
   "proxies": [
     {
       "path": "/",
-      "proxyUrl": "http://m.kosherdate.co.il/api/v5/index.php"
+      "proxyUrl": "http://m.kosherdate.co.il/api/v6/index.php"
     }
   ]
 }

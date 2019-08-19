@@ -3,7 +3,7 @@ import {IonicPage, NavController, NavParams, LoadingController, ToastController,
 import {HomePage} from "../home/home";
 import {ApiQuery} from "../../library/api-query";
 import {Storage} from "@ionic/storage";
-import {FingerprintAIO} from "@ionic-native/fingerprint-aio";
+import {FingerprintAIO} from "@ionic-native/fingerprint-aio/ngx";
 import {Http, Headers, RequestOptions, Response} from "@angular/http";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/map";

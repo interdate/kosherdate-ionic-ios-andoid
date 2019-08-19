@@ -52,7 +52,7 @@ export class Page {
     }
 
     ionViewWillEnter() {
-        this.api.pageName = 'ProfilePage';
+        this.api.pageName = 'PagePage';
         $('.back-btn').show();
     }
 

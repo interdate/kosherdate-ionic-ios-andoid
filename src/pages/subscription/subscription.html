@@ -53,14 +53,13 @@
       <div tappable (click)="subscribe(product) ">
         <div class="subscr_center">
           <h2>{{product.title}}</h2>
-          <p>{{product.description}}</p>
-          <div class="continue">לחץ כאן כדי להמשיך</div>
+          <p class="description">{{product.description}}</p>
         </div>
         <div class="subscr_right">{{product.price}}</div>
       </div>
     </div>
     <div class="text" [innerHTML]="this.dataPage?.ios.textAfter"></div>
-    <div style="margin-bottom: 24px" class="text"><ul><li><span class="link" (click)="page(11)">מדיניות פרטיות</span> | <span class="link" (click)="page(42)">תנאי שימוש</span></li></ul></div>
+    <div style="margin-bottom: 24px" class="text"><ul><li><span class="link" (click)="page(34)">מדיניות פרטיות</span> | <span class="link" (click)="page(7)">תנאי שימוש</span></li></ul></div>
   </div>
 
 </ion-content>

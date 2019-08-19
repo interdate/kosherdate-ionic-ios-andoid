@@ -3,7 +3,7 @@ import {NavController, NavParams, ToastController} from "ionic-angular";
 import {ApiQuery} from "../../library/api-query";
 import {Http} from "@angular/http";
 import {Storage} from "@ionic/storage";
-import {AndroidFingerprintAuth} from "@ionic-native/android-fingerprint-auth";
+import {AndroidFingerprintAuth} from "@ionic-native/android-fingerprint-auth/ngx";
 
 
 /*
